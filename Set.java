@@ -2,10 +2,10 @@ import java.util.Random;
 
 public class Set {
 
-	public String[] mass;
-	public int[] amount;
+	private String[] mass;
+	private int[] amount;
 	private int over;
-	public int size;
+	private int size;
 
 	public Set(int val) {
 
@@ -119,20 +119,20 @@ public class Set {
 
 	public String randRemove() {
 		Random rand = new Random();
-		String p;
-		int i, k = 0;
+		String buf;
+		int i, buf2 = 0;
 		do {
 			i = 0;
-			k = amount[i];
+			buf2 = amount[i];
 			i++;
-		} while ((k == 0) && (i < size));
-		if (k == 0) {
+		} while ((buf2 == 0) && (i < size));
+		if (buf2 == 0) {
 			return null;
 		} else {
 
 			i = rand.nextInt(size);
 
-			p = mass[i];
+			buf = mass[i];
 			amount[i]--;
 			if (amount[i] == 0) {
 				mass[i] = mass[size - 1];
@@ -140,7 +140,7 @@ public class Set {
 				amount[i] = amount[size - 1];
 				size--;
 			}
-			return p;
+			return buf;
 
 		}
 	}
