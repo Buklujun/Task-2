@@ -3,6 +3,9 @@ public class Black_jack {
 
 	public static void main(String[] args) {
 		Set coloda = new Set(13);
+
+		/** Collect the cards pack */
+
 		for (int i = 0; i < 9; i++) {
 			coloda.add(Integer.toString(i + 2), new F1());
 		}
@@ -11,7 +14,12 @@ public class Black_jack {
 		coloda.add("K", new F1());
 		coloda.add("A", new F1());
 
-		Thread t[] = new Thread[13];
+		Thread t[] = new Thread[13]; // Create an array of named threads, which
+										// will be players
+		/**
+		 * Start the game, threads use method randRemove in order in one lap and
+		 * repeat this lap in "while" cycle
+		 */
 		do {
 			for (int numb = 0; numb < 13; numb++) {
 				player = new Mythread(coloda, numb);
@@ -25,7 +33,7 @@ public class Black_jack {
 					try {
 						t[numb - 1].join();
 						t[numb].start();
-						last = numb;
+						last = numb; // Get the last thread in the lap
 					} catch (InterruptedException e) {
 						System.out.println("ChildThread прерван");
 					}
@@ -36,7 +44,6 @@ public class Black_jack {
 				System.out.println("Основной поток прерван");
 			}
 
-			// System.out.println("Size = " + coloda.getSize());
 		} while (coloda.isEmpty() != true);
 	}
 }

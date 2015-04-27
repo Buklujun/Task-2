@@ -1,18 +1,17 @@
 public class Mythread implements Runnable {
-	private Set coloda;
-	private int numb;
+	private Set mColoda; // Useful pack of cards
+	private int mNumb; // Number of player
 
 	public Mythread(Set coloda, int numb) {
-		this.coloda = coloda;
-		this.numb = numb + 1;
+		mColoda = coloda;// Pack of cards
+		mNumb = numb + 1;// Get number of player
 
 	}
 
 	public void run() {
-		// System.out.println("начался поток № " + numb);
-		synchronized (coloda) {
-			System.out.println("Игрок № " + numb + " вытянул "
-					+ coloda.randRemove());
+		synchronized (mColoda) {
+			System.out.println("Игрок № " + mNumb + " вытянул "
+					+ mColoda.randRemove());
 		}
 	}
 
