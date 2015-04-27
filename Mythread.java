@@ -4,7 +4,7 @@ public class Mythread implements Runnable {
 
 	public Mythread(Set coloda, int numb) {
 		this.coloda = coloda;
-		this.numb = numb;
+		this.numb = numb + 1;
 
 	}
 

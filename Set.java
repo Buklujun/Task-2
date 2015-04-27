@@ -104,7 +104,7 @@ public class Set {
 		}
 	}
 
-	public int size() {
+	public int getSize() {
 
 		return size;
 	}
@@ -118,8 +118,6 @@ public class Set {
 	}
 
 	public String randRemove() {
-		Random rand = new Random();
-		String buf;
 		int i, buf2 = 0;
 		do {
 			i = 0;
@@ -129,15 +127,16 @@ public class Set {
 		if (buf2 == 0) {
 			return null;
 		} else {
+			
+			Random rand = new Random();
+			int rn = rand.nextInt(size);
 
-			i = rand.nextInt(size);
-
-			buf = mass[i];
-			amount[i]--;
-			if (amount[i] == 0) {
-				mass[i] = mass[size - 1];
+			String buf = mass[rn];
+			amount[rn]--;
+			if (amount[rn] == 0) {
+				mass[rn] = mass[size - 1];
 				mass[size - 1] = null;
-				amount[i] = amount[size - 1];
+				amount[rn] = amount[size - 1];
 				size--;
 			}
 			return buf;
