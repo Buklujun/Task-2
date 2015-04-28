@@ -1,8 +1,8 @@
-public class Mythread implements Runnable {
+public class MyThread implements Runnable {
 	private Set mColoda; // Useful pack of cards
 	private int mNumb; // Number of player
 
-	public Mythread(Set coloda, int numb) {
+	public MyThread(Set coloda, int numb) {
 		mColoda = coloda;// Pack of cards
 		mNumb = numb + 1;// Get number of player
 

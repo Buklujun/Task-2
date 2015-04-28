@@ -1,5 +1,5 @@
-public class Black_jack {
-	static Mythread player;
+public class BlackJack {
+	static MyThread player;
 
 	public static void main(String[] args) {
 		Set coloda = new Set(13);
@@ -22,7 +22,7 @@ public class Black_jack {
 		 */
 		do {
 			for (int numb = 0; numb < 13; numb++) {
-				player = new Mythread(coloda, numb);
+				player = new MyThread(coloda, numb);
 				t[numb] = new Thread(player);
 			}
 			int last = 0;
